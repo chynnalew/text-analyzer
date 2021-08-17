@@ -68,3 +68,11 @@ const text = "Red! Red. I like red, green, and yellow.";
 const word = "Red";
 numberOfOccurrencesInText(word, text);
 EXPECTED OUTPUT: 3
+
+TEST: "If an empty string is passes in as a word, it should return 0."
+CODE:
+const word = "";
+const text = "red RED Red!";
+wordCounter = (word, text);
+EXPECTED OUTPUT = 0;
+
