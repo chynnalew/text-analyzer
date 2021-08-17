@@ -24,7 +24,8 @@ TEST: "It should not include numbers as words"
 CODE: wordCounter("hi there 77 19")
 EXPECTED OUTPUT: 2
 
----------------------------
+//////////
+
 Describe: numberOfOccurrencesInText()
 
 TEST: "It should return 0 occurrences of a word for an empty string"
@@ -76,3 +77,27 @@ const text = "red RED Red!";
 wordCounter = (word, text);
 EXPECTED OUTPUT = 0;
 
+//////////
+
+Describe: boldPassage()
+
+TEST: "It should return a non-matching word in a p tag."
+CODE:
+const word = "hello";
+const text = "yo";
+boldPassage(word, text);
+EXPECTED OUTPUT: "<p>yo</p>"
+
+TEST: "It should return a matching word in a b tag."
+CODE:
+const word = "hello";
+const text = "hello";
+boldPassage(word, text);
+EXPECTED OUTPUT: "<p><b>hello</b></p>"
+
+TEST: "It should wrap words that match in `b` tags, but not words that don't."
+CODE:
+const word = "hello"
+const text = "hello there"
+boldPassage(word, text);
+EXPECTED OUTPUT: "<p><b>hello<b> there </p>"
