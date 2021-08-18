@@ -1,14 +1,20 @@
 // Utility Logic
 
 function noInputtedWord(word, text) {
-  return ((text.trim().length === 0 || word.trim().length === 0));
+  for (let i=0; i <arguments.length; i++) {
+    console.log(arguments[i]);
+    if (arguments[i].trim().length === 0){
+      return true;
+    }
+  }
+  return false;
 }
 
 
 // Business Logic
 
 function wordCounter(text) {
-  if (text.trim().length === 0) {
+  if (noInputtedWord(text)) {
     return 0;
   }
   let wordCount = 0;
@@ -59,6 +65,17 @@ function numberOfWordRepeats(text) {
   let commonWordsArray = [mostCommonWord , secondMostCommon , thirdMostCommon];
   return commonWordsArray;
 } 
+
+function firstInstanceOfWord(word, text) {
+  const textArray = text.split(" ");
+  for (let i = 0; i < textArray.length; i++) {
+    console.log(i);
+    if (word === textArray[i]) {
+      return i;
+    }
+  }
+  return -1;
+}
 
 // UI Logic
 
